@@ -26,3 +26,27 @@ git clone https://github.com/praia-lang/praia-sublime.git "Praia Syntax Highligh
 - Nested block comments
 - Shebang detection
 - Comment toggling (`Cmd+/` / `Ctrl+/`)
+
+## Recommended Settings
+
+These settings work well with Praia. To use them, open a `.praia` file and choose
+**Preferences → Settings - Syntax Specific** from the menu, then paste:
+
+```json
+{
+    "tab_size": 4,
+    "translate_tabs_to_spaces": true,
+    "auto_match_enabled": true,
+    "word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?"
+}
+```
+
+## Tests
+
+Syntax tests live in [`tests/`](./tests). Open a test file in Sublime Text and run
+**Build With: Syntax Tests** (`Cmd+B` / `Ctrl+B`) to verify the syntax. See the
+[Sublime docs](https://www.sublimetext.com/docs/syntax.html#testing) for details.
+
+## License
+
+[MIT](./LICENSE)

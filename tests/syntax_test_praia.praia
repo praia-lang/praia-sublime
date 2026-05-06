@@ -1,0 +1,180 @@
+// SYNTAX TEST "Packages/Praia Syntax Highlighting/Praia.sublime-syntax"
+
+#!/usr/bin/env praia
+// <- comment.line.shebang.praia
+// ^^^^^^^^^^^^^^^^^ comment.line.shebang.praia
+
+// line comment
+// <- comment.line.double-slash.praia
+//  ^^^^^^^^^^^ comment.line.double-slash.praia
+
+/* block /* nested */ still */
+// <- comment.block.praia
+//   ^^^^^ comment.block.praia
+//        ^^^^^^^^^^^ comment.block.praia
+//                   ^^^^^^^^ comment.block.praia
+
+let x = 42
+// <- storage.type.praia
+//    ^ keyword.operator.assignment.praia
+//      ^^ constant.numeric.integer.praia
+
+let h = 0xFF_AA
+//      ^^^^^^^ constant.numeric.hex.praia
+
+let b = 0b1010_0011
+//      ^^^^^^^^^^^ constant.numeric.binary.praia
+
+let o = 0o755
+//      ^^^^^ constant.numeric.octal.praia
+
+let f = 3.14e10
+//      ^^^^^^^ constant.numeric.float.praia
+
+let g = 1_000_000
+//      ^^^^^^^^^ constant.numeric.integer.praia
+
+let s = "hello %{name}!\n"
+//      ^ punctuation.definition.string.begin.praia
+//       ^^^^^^ string.quoted.double.praia
+//             ^^ punctuation.section.interpolation.begin.praia
+//                   ^ punctuation.section.interpolation.end.praia
+//                     ^^ constant.character.escape.praia
+//                       ^ punctuation.definition.string.end.praia
+
+let t = """triple %{x} done"""
+//      ^^^ punctuation.definition.string.begin.praia
+//         ^^^^^^^ string.quoted.triple.praia
+//                         ^^^ punctuation.definition.string.end.praia
+
+let c = 'a'
+//      ^ punctuation.definition.string.begin.praia
+//        ^ punctuation.definition.string.end.praia
+
+let ok = true
+//       ^^^^ constant.language.boolean.praia
+
+let bad = false
+//        ^^^^^ constant.language.boolean.praia
+
+let n = nil
+//      ^^^ constant.language.null.praia
+
+if x == 1 {
+// <- keyword.control.praia
+//   ^^ keyword.operator.comparison.praia
+}
+
+while x < 10 {
+// <- keyword.control.praia
+//      ^ keyword.operator.comparison.praia
+    break
+//  ^^^^^ keyword.control.praia
+    continue
+//  ^^^^^^^^ keyword.control.praia
+}
+
+for i in 0..10 {
+// <- keyword.control.praia
+//    ^^ keyword.control.praia
+//        ^^ keyword.operator.range.praia
+}
+
+return x
+// <- keyword.control.flow.praia
+
+yield x
+// <- keyword.control.flow.praia
+
+throw err
+// <- keyword.control.exception.praia
+
+defer cleanup()
+// <- keyword.control.exception.praia
+
+ensure x > 0
+// <- keyword.control.exception.praia
+
+async func fetch() {
+// <- keyword.control.async.praia
+//    ^^^^ storage.type.function.praia
+//         ^^^^^ entity.name.function.praia
+    await req()
+//  ^^^^^ keyword.control.async.praia
+//        ^^^ variable.function.praia
+}
+
+use sys
+// <- keyword.control.import.praia
+//  ^^^ support.class.praia
+
+export func foo() { }
+// <- keyword.control.import.praia
+//     ^^^^ storage.type.function.praia
+//          ^^^ entity.name.function.praia
+
+let add = lam(a, b) -> a + b
+//        ^^^ storage.type.function.lambda.praia
+
+class Animal {
+// <- storage.type.class.praia
+//    ^^^^^^ entity.name.class.praia
+    static count = 0
+//  ^^^^^^ keyword.control.praia
+    init(name) { this.name = name }
+//  ^^^^ entity.name.function.constructor.praia
+//               ^^^^ variable.language.praia
+}
+
+class Dog extends Animal {
+// <- storage.type.class.praia
+//    ^^^ entity.name.class.praia
+//        ^^^^^^^ storage.modifier.praia
+//                ^^^^^^ entity.other.inherited-class.praia
+    func bark() { super.bark() }
+//  ^^^^ storage.type.function.praia
+//       ^^^^ entity.name.function.praia
+//                ^^^^^ variable.language.praia
+//                      ^^^^ variable.function.praia
+}
+
+enum Color { Red, Green, Blue }
+// <- storage.type.enum.praia
+
+print(len(arr))
+// <- support.function.praia
+//    ^^^ support.function.praia
+
+let mapped = arr |> map(fn) |?> filter(g)
+//               ^^ keyword.operator.pipe.praia
+//                          ^^^ keyword.operator.pipe-try.praia
+
+let r = a && b || !c
+//        ^^ keyword.operator.logical.praia
+//             ^^ keyword.operator.logical.praia
+//                ^ keyword.operator.logical.not.praia
+
+let v = a ?? b
+//        ^^ keyword.operator.nil-coalesce.praia
+
+let z = obj?.field
+//         ^^ keyword.operator.optional-chain.praia
+
+let q = arr?[0]
+//         ^^ keyword.operator.optional-index.praia
+
+x += 1
+//^^ keyword.operator.assignment.compound.praia
+
+let bits = a << 2 | b >> 1
+//           ^^ keyword.operator.bitwise.shift.praia
+//                    ^^ keyword.operator.bitwise.shift.praia
+
+let spread = [...rest]
+//            ^^^ keyword.operator.spread.praia
+
+@decorator
+// <- punctuation.definition.annotation.praia
+
+obj.field
+// ^ punctuation.accessor.praia
