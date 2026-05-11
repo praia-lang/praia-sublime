@@ -147,13 +147,13 @@ contexts:
       scope: constant.language.null.praia
 
   builtins:
-    - match: \b(print|len|push|pop|type|str|num|fromCharCode|sort|filter|map|each|keys|values|reduce|any|all|flatMap|unique|zip|enumerate|groupBy|findIndex|flatten|loadNative)\b
+    - match: \b(print|len|push|pop|type|str|num|int|fromCharCode|sort|filter|map|each|keys|values|reduce|any|all|flatMap|unique|zip|enumerate|groupBy|findIndex|flatten|loadNative)\b
       scope: support.function.praia
 
   namespaces:
     - match: \b(sys|http|json|yaml|net|bytes|crypto|random|time|math|base64|path|url|futures|sqlite)\b
       scope: support.class.praia
-    - match: \b(Lock|Channel|SharedMap|CancellationToken)\b
+    - match: \b(Lock|Queue|Channel|SharedMap|CancellationToken)\b
       scope: support.class.praia
 
   operators:
