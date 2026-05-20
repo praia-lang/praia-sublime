@@ -224,6 +224,12 @@ contexts:
         2: entity.other.inherited-class.praia
 
   punctuation:
+    # Set literal opener `#{` — match before the generic `{` rule so
+    # it gets its own scope instead of being treated as a bare brace.
+    # The matching `}` falls through to the generic punctuation match
+    # below (no separate rule needed).
+    - match: '#\{'
+      scope: punctuation.section.set.begin.praia
     - match: '[{}()\[\],;:]'
       scope: punctuation.praia
     - match: '\.'

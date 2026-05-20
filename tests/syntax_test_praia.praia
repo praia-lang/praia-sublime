@@ -178,3 +178,11 @@ let spread = [...rest]
 
 obj.field
 // ^ punctuation.accessor.praia
+
+let s = #{1, 2, 3}
+//      ^^ punctuation.section.set.begin.praia
+//                ^ punctuation.praia
+
+let empty = #{}
+//          ^^ punctuation.section.set.begin.praia
+//            ^ punctuation.praia
